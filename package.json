@@ -1,6 +1,6 @@
 {
   "name": "sig-splitter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A signature splitter for ERC1271",
   "main": "index.js",
   "scripts": {
