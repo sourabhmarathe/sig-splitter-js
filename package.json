@@ -1,0 +1,22 @@
+{
+  "name": "sig-splitter",
+  "version": "1.0.0",
+  "description": "A signature splitter for ERC1271",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sourabhmarathe/sig-splitter-js.git"
+  },
+  "keywords": [
+    "ethereum"
+  ],
+  "author": "Sourabh Marathe and Tom Hoang",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/sourabhmarathe/sig-splitter-js/issues"
+  },
+  "homepage": "https://github.com/sourabhmarathe/sig-splitter-js#readme"
+}
