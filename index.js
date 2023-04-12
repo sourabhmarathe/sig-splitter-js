@@ -18,8 +18,8 @@ exports.split = (signature) => {
     }
 
     // validate that the input is a hex string
-    var regex = /^[0-9A-Fa-f]+$/;
-    if (!signature.test(regex)) {
+    var regex = '^(0x|0X)?[a-fA-F0-9]+$';
+    if (!signature.match(regex)) {
         throw new Error('not a hex string')
     }
 
