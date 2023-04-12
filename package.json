@@ -4,7 +4,7 @@
   "description": "A signature splitter for ERC1271",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/sourabhmarathe/sig-splitter-js/issues"
   },
-  "homepage": "https://github.com/sourabhmarathe/sig-splitter-js#readme"
+  "homepage": "https://github.com/sourabhmarathe/sig-splitter-js#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
 }
