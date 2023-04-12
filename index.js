@@ -1,22 +1,32 @@
+const assert = require( "assert" );
 
-// Given three components of a an ERC1271 signature, combine them into a single
-// signature.
+/// @notice combines components of an ERC1271 signature into a single hex string
+/// @return hex string signature
 exports.combine = (v, r, s) => {
-    return v + r + s
+    return v + r.slice(2,66) + s
 }
 
 
-// Given a hex string that represents an ERC1271 siganture, split it into its
-// three component parts, v, r and s.
+/// @notice splits a ERC1271 signature into its components
+/// @return v 32 byte hex string
+/// @return r 32 byte hex string
+/// @return s 1 byte hex string
 exports.split = (signature) => {
-    // validate that the signature is the sufficient length
-    require(signature.length == 66)
-    // validate that the signature is in hex
+    // validate that the input is the correct length
+    if (signature.length != 132) {
+        throw new Error('invalid length')
+    }
+    // validate that the input is a hex string
     var regex = /[0-9A-Fa-f]{6}/g;
-    require(signature.match(regex))
+    if (!signature.match(regex)) {
+        throw new Error('not a hex string')
+    }
     // split the signature
-    v = '0x' + signature.slice(0, 31);
-    r = '0x' + signature.slice(32, 64);
-    s = signature.slice(65, 66); // todo: convert to decimal?
-    return v, r, s
+    const components = {
+        v: "0x" + signature.slice(2, 66),
+        r: "0x" + signature.slice(66, 130),
+        s: signature.slice(130, 133)
+    }
+
+    return components;
 }
