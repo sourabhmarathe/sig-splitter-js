@@ -16,17 +16,21 @@ exports.split = (signature) => {
     if (signature.length != 132) {
         throw new Error('invalid length')
     }
+    console.log('good length');
     // validate that the input is a hex string
-    var regex = /[0-9A-Fa-f]{6}/g;
-    if (!signature.match(regex)) {
+    var regex = /^[0-9A-Fa-f]+$/;
+    if (!signature.test(regex)) {
         throw new Error('not a hex string')
     }
+    console.log('it is hex');
     // split the signature
     const components = {
         v: "0x" + signature.slice(2, 66),
         r: "0x" + signature.slice(66, 130),
         s: signature.slice(130, 133)
     }
+
+    console.log('components: ' + components)
 
     return components;
 }
