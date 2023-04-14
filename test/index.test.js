@@ -1,6 +1,6 @@
 
-const { split, combine } = require("..");
-const assert = require( "assert" );
+import { combine, split } from '../index.js'
+import * as assert from 'assert'
 
 describe( "Signature Splitter", function () {
     describe( "split", function () {

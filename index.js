@@ -1,8 +1,6 @@
-const assert = require( "assert" );
-
 /// @notice combines components of an ERC1271 signature into a single hex string
 /// @return hex string signature
-exports.combine = (v, r, s) => {
+function combine(v, r, s) {
     return v + r.slice(2,66) + s
 }
 
@@ -11,7 +9,7 @@ exports.combine = (v, r, s) => {
 /// @return v 32 byte hex string
 /// @return r 32 byte hex string
 /// @return s 1 byte hex string
-exports.split = (signature) => {
+function split(signature) {
     // validate that the input is the correct length
     if (signature.length != 132) {
         throw new Error('invalid length')
@@ -32,3 +30,5 @@ exports.split = (signature) => {
 
     return components;
 }
+
+export { combine, split }
