@@ -1,6 +1,7 @@
 import express from 'express'; 
 import {split, combine} from './index.js';
 import bodyParser from 'body-parser';
+const port = process.env.PORT || 3001;
 
 const page = express();
 
@@ -12,8 +13,8 @@ page.get('/', function (req, res) {
     res.render('home', {sig: null, v: null, r: null, s: null, error: null});
 })
 
-page.listen(3000, function () {
-    console.log('sig splitter on port 3000')
+page.listen(port, function () {
+    console.log('sig splitter on port ${port}')
 })
   
 page.post('/', function (req, res) {
