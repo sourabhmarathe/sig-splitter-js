@@ -14,9 +14,9 @@ page.get('/', function (req, res) {
 })
 
 page.listen(port, function () {
-    console.log('sig splitter on port ${port}')
+    console.log('sig splitter on port ' + port);
 })
-  
+
 page.post('/', function (req, res) {
     let input_sig = req.body.sig;
     let input_v = req.body.v;
